@@ -1,0 +1,59 @@
+<div class="formulario">
+    <h1 class="jumbotron">Cadastro de Produtos</h1>
+
+    <div class="row" ng-show="mensagem.length">
+        <div id='feedback' class="center-block col-md-6">
+            <div class='alert alert-success alert-dismissable'>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <span>{{mensagem}}</span>
+            </div>
+        </div>
+    </div>
+
+
+    <form novalidate ng-submit="submeter()" name="formulario">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Descrição</label>
+                <input name="descricao" class="form-control"
+                       ng-model="produto.descricao" required/>
+                <p ng-show="formulario.$submitted && formulario.descricao.$error.required"
+                   class="help-block help-block-error">"Descrição" não pode ficar em branco.</p>
+            </div>
+
+            <div class="form-group">
+                <label>Imagem</label>
+                <input type="file" name="image" class="form-control" fileread="produto.image" />
+            </div>
+
+            <div class="form-group">
+                <label>Preço</label>
+                <input name="preco" class="form-control" ng-model="produto.preco" required/>
+                <p ng-show="formulario.$submitted && formulario.preco.$error.required"
+                   class="help-block help-block-error">"Preço" não pode ficar em branco.</p>
+            </div>
+
+            <div class="form-group">
+                <input type="radio" ng-model="produto.origem" name="origem" value="nacional" checked>Nacional
+                <input type="radio" ng-model="produto.origem" name="origem" value="importado"> Importado<br>
+            </div>
+
+            <div class="form-group">
+                <label>Categoria</label>
+                <select name="categoria" ng-model="produto.categoria.id" class="form-control"
+                    ng-options="categoria.id as (categoria.descricao | uppercase) for categoria in categorias">
+
+                </select>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Salvar
+            </button>
+            <a href="/principal" class="btn btn-primary">Voltar</a>
+        </div>
+        <div class="col-md-6">
+            <img src="{{produto.image}}" width="350px" height="300px" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="principal">
+    <h1 class="jumbotron">Lista de Produtos</h1>
+
+    <div class="form-group">
+        <a class="btn btn-primary" href="/cadastrar">Cadastrar</a>
+    </div>
+
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <th>Descrição</th>
+            <th>Data da Compra</th>
+            <th>Preço (Real)</th>
+            <th>Preço (Dolar)</th>
+            <th>Origem</th>
+            <th>Categoria</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <tr ng-repeat="produto in produtos">
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.dataCriacao}}</td>
+            <td>{{produto.preco | currency:"R$ "}}</td>
+            <td>{{produto.preco * 3.599 | currency:"USD$ "}}</td>
+            <td>{{produto.origem}}</td>
+            <td>{{produto.categoria.descricao}}</td>
+            <td><a href="/editar/{{produto.id}}" class="btn btn-primary">Editar</a></td>
+            <td><button ng-click="remover(produto)" type="button" class="btn btn-danger">remover</button></td>
+        </tr>
+    </table>
+</div>
