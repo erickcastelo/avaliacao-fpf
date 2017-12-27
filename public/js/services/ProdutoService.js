@@ -1,11 +1,12 @@
 angular.module('alurapic')
     .service('ProdutoService', function ($http, $httpParamSerializer) {
+        var url = 'http://localhost:8080/api/';
 
         return {
             listarProdutos: function () {
                 return $http({
                     method : 'get',
-                    url : 'http://localhost:8080/api/produtos',
+                    url : url + 'produtos/',
                     headers : {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).then(function(event){
                     return event;
@@ -15,7 +16,7 @@ angular.module('alurapic')
             listarCategorias: function () {
                 return $http({
                     method : 'get',
-                    url : 'http://localhost:8080/api/categorias',
+                    url : url + 'categorias/',
                     headers : {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).then(function(event){
                     return event;
@@ -29,7 +30,7 @@ angular.module('alurapic')
 
                 return $http({
                     method : 'post',
-                    url : 'http://localhost:8080/api/cadastrar',
+                    url : url + 'produto/',
                     crossDomain: true,
                     data: JSON.stringify(produto),
                     dataType: 'application/json',
@@ -44,7 +45,7 @@ angular.module('alurapic')
             remover: function (id) {
                 return $http({
                     method : 'delete',
-                    url : 'http://localhost:8080/api/remover/' + id,
+                    url : url + 'produto/' + id,
                     crossDomain: true,
                     headers : {
                         'Content-Type': 'application/json'
@@ -57,7 +58,7 @@ angular.module('alurapic')
             buscar: function (id) {
                 return $http({
                     method : 'get',
-                    url : 'http://localhost:8080/api/buscar/' + id,
+                    url : url + 'produto/' + id,
                     crossDomain: true,
                     headers : {
                         'Content-Type': 'application/json'
@@ -74,7 +75,7 @@ angular.module('alurapic')
 
                 return $http({
                     method : 'put',
-                    url : 'http://localhost:8080/api/editar',
+                    url : url + 'produto',
                     crossDomain: true,
                     data: JSON.stringify(produto),
                     dataType: 'application/json',

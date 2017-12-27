@@ -1,4 +1,4 @@
-let gulp = require('gulp'),
+var gulp = require('gulp'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     replace = require('gulp-html-replace'),
