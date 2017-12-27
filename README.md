@@ -1,5 +1,12 @@
 # avaliacao-fpf
 
+### Tecnologias utilizadas no Front-End.
+- `AngularJS`
+- `Boostrap`
+- `Gulp`
+- `Sass`
+- `Npm`
+
 ### Repositório para instalação das dependências do projeto.
 
 Primeiro de tudo, você preciso ter o NodeJs na sua versão 8.0. Para baixar clique <a href="https://nodejs.org/en/blog/release/v8.0.0/">aqui</a>.
